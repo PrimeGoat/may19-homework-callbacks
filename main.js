@@ -10,20 +10,11 @@ const fahrenheitToCelsius = function(temp) {
   return (temp - 32) * (5/9);
 }
 
-const tryconvert = function(temp, type = 'f') {
-  type = type.toString().toLowerCase();
-
-  switch(type) {
-    case 'f':
-      return fahrenheitToCelsius(temp);
-    case 'c':
-      return celsiusToFahrenheit(temp);
-    default:
-      return "Invalid type";
-  }
+const tryconvert = function(temp, callback) {
+  return callback(temp);
 }
 
-console.log(tryconvert(0, 'c'));
+console.log(tryconvert(0, celsiusToFahrenheit));
 
 
 //2.

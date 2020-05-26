@@ -2,6 +2,28 @@
 // Build a celsiusToFahrenheit and a fahrenheitToCelsius function
 // Build a universal function  'tryconvert' that will take a value for temperature whether fahrenheit or celsius and convert it to the other
 
+const celsiusToFahrenheit = function(temp) {
+  return (temp * (9/5)) + 32;
+}
+
+const fahrenheitToCelsius = function(temp) {
+  return (temp - 32) * (5/9);
+}
+
+const tryconvert = function(temp, type = 'f') {
+  type = type.toString().toLowerCase();
+
+  switch(type) {
+    case 'f':
+      return fahrenheitToCelsius(temp);
+    case 'c':
+      return celsiusToFahrenheit(temp);
+    default:
+      return "Invalid type";
+  }
+}
+
+console.log(tryconvert(0, 'c'));
 
 
 //2.
@@ -9,11 +31,12 @@
 //I need to start coding
 //I'm practicing my coding now
 // I have finished my coding
+
 let value = 'coding';
 function needToStart(subject) {
   setTimeout(() => {
     console.log(`I need to start ${subject}`);
-  }, 3000);
+  }, 1000);
 }
 function working(subject) {
   setTimeout(() => {
@@ -23,7 +46,7 @@ function working(subject) {
 function finished(topic) {
   setTimeout(() => {
     console.log(`I have finished my ${topic} finally!`);
-  }, 1000);
+  }, 3000);
 }
 needToStart();
 working();
@@ -40,13 +63,16 @@ let places = [
   { name: "Joe's Pizza", address: '285 Madison' },
   { name: 'Dunkin Donuts', address: '299 42nd St' },
 ];
+
 const murrays = { name: "Murray's Steakhouse", address: '1222 Lexington Ave' };
+
 function addPlace(object, array) {
   setTimeout(() => {
     array.push(object);
     console.log('Now I have the data');
   }, 5000);
 }
+
 function httpPlaces(array) {
   setTimeout(() => {
     array.forEach((item) => {
@@ -73,9 +99,11 @@ Conditional 1: The first conditional evaluates if customerLeft is true
 Inside the conditional create an object, 'errorObj' with a key called message with a value 'The customer left'
 and a key text with value 'Hope they didn't steal anything'
 Pass the object to the rejectCallback function
+
 Conditional 2: The second conditional evaluates it the customer is shoplifting
 If true:
 Create object,'errorObj', that has a message, 'Customer is stealing' and a text, 'Someone should call security'
+
 Conditional 3: Third conditional should cover everything else
 and resolveCallback function should just pass a string 'Lots of stuff for you to buy so pull out that credit card!'
 Globally create 2 new functions
@@ -88,7 +116,27 @@ uhOh should take an argument called error
 it should log message on one line and the text on the other from the error
 Outputs should result with messages based on your boolean values for customerLeft and customerIsShopping
 */
+var customerLeft = true, customerIsShopLifting = true;
 
+const customerCallback = function(resolveCallback, rejectCallback) {
+  let errorObj;
+  if(customerLeft) {
+    errorObj = {
+      message: "The customer left",
+      text: "Hope they didn't steal anything"
+    };
+    rejectCallback(errorObj);
+  }
+
+  if(customerIsShopLifting) {
+    errorObj = {
+      message: "Customer is stealing",
+      text: "Someone should call security"
+    };
+  }
+
+  errorObj = 
+}
 
 
 //5. Stretch Goal
